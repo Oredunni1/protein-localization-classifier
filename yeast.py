@@ -4,9 +4,14 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 from sklearn.metrics import accuracy_score, confusion_matrix, ConfusionMatrixDisplay
-import torch
+import torch, random
 import torch.nn as nn
 import matplotlib.pyplot as plt
+
+# set seed for reproducibility
+torch.manual_seed(42)
+np.random.seed(42)
+random.seed(42)
 
 # Investigate the dataset
 yeast = pd.read_csv("yeast.csv")
@@ -142,7 +147,7 @@ print(f"Test Accuracy: {acc:.4f}")
 cm = confusion_matrix(y_test_np, y_pred_labels)
 
 # Since we used labelEncoder on the original label
-label_encoder.fit_transform(yeast["localization_site"])
+# label_encoder.fit_transform(yeast["localization_site"])
 class_names = label_encoder.classes_
 
 # Display with the class names
