@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VS Code / OS
+.vscode/
+.DS_Store
+
+# Outputs / Artifacts
+*.pth
+*.pt
+*.h5
+*.png
+*.pdf
+outputs/
+
+# Colab CLI local state (optional)
+.config/
