@@ -30,14 +30,15 @@ y = yeast["localization_site"]
 label_encoder = LabelEncoder()
 y_encoded = label_encoder.fit_transform(y)
 
-# 3. Standardize features
-scaler = StandardScaler()
-X_scaled = scaler.fit_transform(X)
-
-# 4. Train/Test split
+# 3. Train/Test split
 X_train_np, X_test_np, y_train_np, y_test_np = train_test_split(
     X_scaled, y_encoded, test_size=0.2, random_state=42, stratify=y_encoded
 )
+
+# 3. Standardize features
+scaler = StandardScaler()
+X_train_np = scaler.fit_transform(X_train_np)
+X_test_np = scaler.transform(X_test_np)
 
 # 5. Convert to Pytorch tensors
 X_train = torch.tensor(X_train_np, dtype=torch.float32)
